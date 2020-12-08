@@ -103,4 +103,21 @@ class ResultsTest {
         val data = utils.readLinesFromFile("day6Input.txt")
         Assert.assertEquals(countCollectiveDeclarations(data), 3550)
     }
+
+    @Test
+    fun day7Part1() {
+        val input = utils.readLinesFromFile("day7Input.txt")
+        val bagMapping = parseLuggageRequirements(input)
+        val options = findValidBagOptions(bagMapping, "shiny gold")
+        Assert.assertEquals(options.size, 378)
+    }
+
+    @Test
+    fun day7Part2() {
+
+        val input = utils.readLinesFromFile("day7Input.txt")
+        val bagMapping = parseLuggageRequirements(input)
+        Assert.assertEquals(countInnerBags(bagMapping, "shiny gold"), 27526)
+    }
+
 }
