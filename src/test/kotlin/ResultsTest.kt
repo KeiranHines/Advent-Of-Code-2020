@@ -114,7 +114,6 @@ class ResultsTest {
 
     @Test
     fun day7Part2() {
-
         val input = utils.readLinesFromFile("day7Input.txt")
         val bagMapping = parseLuggageRequirements(input)
         Assert.assertEquals(countInnerBags(bagMapping, "shiny gold"), 27526)
@@ -135,5 +134,21 @@ class ResultsTest {
         val safe = c.fixBug(input)
         c.runProgramExit(safe)
         Assert.assertEquals(c.accumulator, 1976)
+    }
+
+
+    @Test
+    fun day9Part1() {
+        val input = utils.readLinesFromFile("day9Input.txt").map { it.toLong() }
+        val result = findFirstInvalidNumber(input)
+        Assert.assertEquals(result, 552655238)
+    }
+
+    @Test
+    fun day9Part2() {
+        val input = utils.readLinesFromFile("day9Input.txt").map { it.toLong() }
+        val invalid = findFirstInvalidNumber(input)
+        val sum = findRangeToSum(input, invalid).toList().sum()
+        Assert.assertEquals(sum, 70672245)
     }
 }
