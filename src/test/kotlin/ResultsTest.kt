@@ -120,4 +120,20 @@ class ResultsTest {
         Assert.assertEquals(countInnerBags(bagMapping, "shiny gold"), 27526)
     }
 
+    @Test
+    fun day8Part1() {
+        val input = utils.readLinesFromFile("day8Input.txt")
+        val c = ConsoleComputer()
+        c.runProgramTillRepeat(input)
+        Assert.assertEquals(c.accumulator, 1709)
+    }
+
+    @Test
+    fun day8Part2() {
+        val c = ConsoleComputer()
+        val input = utils.readLinesFromFile("day8Input.txt")
+        val safe = c.fixBug(input)
+        c.runProgramExit(safe)
+        Assert.assertEquals(c.accumulator, 1976)
+    }
 }
