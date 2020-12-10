@@ -151,4 +151,18 @@ class ResultsTest {
         val sum = findRangeToSum(input, invalid).toList().sum()
         Assert.assertEquals(sum, 70672245)
     }
+
+    @Test
+    fun day10Part1() {
+        val input = utils.readLinesFromFile("day10Input.txt").map { it.toInt() }
+        val changes = findJoltageChanges(input)
+        Assert.assertEquals(changes.first * changes.third, 1)
+    }
+
+    @Test
+    fun day10Part2() {
+        val input = utils.readLinesFromFile("day10Input.txt").map { it.toInt() }
+        val combinations = findJoltageCombinations(input)
+        Assert.assertEquals(combinations, 12089663946752)
+    }
 }
