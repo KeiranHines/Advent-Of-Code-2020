@@ -1,6 +1,6 @@
 import org.testng.Assert
 import org.testng.annotations.Test
-
+import kotlin.math.abs
 
 /**
  * Tests to get all the Challenge results
@@ -180,5 +180,21 @@ class ResultsTest {
         val result = runAdvancedSimulationTillComplete(input)
         val count = result.map { it.count { it == '#' } }.sum()
         Assert.assertEquals(count, 2027)
+    }
+
+    @Test
+    fun day12Part1() {
+        val input = utils.readLinesFromFile("day12Input.txt")
+        val nav = NavigationSystem()
+        val (north, east) = nav.processCommands(input)
+        Assert.assertEquals(abs(north) + abs(east), 820)
+    }
+
+    @Test
+    fun day12Part2() {
+        val input = utils.readLinesFromFile("day12Input.txt")
+        val nav = NavigationSystem2(waypointEast = 10, waypointNorth = 1)
+        val (north, east) = nav.processCommands(input)
+        Assert.assertEquals(abs(north) + abs(east), 0)
     }
 }
