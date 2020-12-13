@@ -165,4 +165,20 @@ class ResultsTest {
         val combinations = findJoltageCombinations(input)
         Assert.assertEquals(combinations, 12089663946752)
     }
+
+    @Test
+    fun day11Part1() {
+        val input = utils.readLinesFromFile("day11Input.txt")
+        val result = runSimulationTillComplete(input)
+        val count = result.map { it.count { it == '#' } }.sum()
+        Assert.assertEquals(count, 2243)
+    }
+
+    @Test
+    fun day11Part2() {
+        val input = utils.readLinesFromFile("day11Input.txt")
+        val result = runAdvancedSimulationTillComplete(input)
+        val count = result.map { it.count { it == '#' } }.sum()
+        Assert.assertEquals(count, 2027)
+    }
 }
